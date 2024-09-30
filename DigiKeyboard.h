@@ -202,24 +202,19 @@ class DigiKeyboardDevice : public Print {
   
   size_t write(uint8_t chr) {
     if(chr == '@') {
-      sendKeyStroke(51, MOD_ALT_RIGHT);
-    }
-    else if(chr == '#') {
-      sendKeyStroke(52, MOD_ALT_RIGHT);
-    }
-    else if(chr == '[') {
-      sendKeyStroke(47, MOD_ALT_RIGHT);      
-    }
-    else if(chr == ']') {
-      sendKeyStroke(48, MOD_ALT_RIGHT);      
+      sendKeyStroke(KEY_2, MOD_ALT_RIGHT); // @ está em AltGr + 2
     }
     else if(chr == '{') {
-      sendKeyStroke(47, MOD_ALT_RIGHT | MOD_SHIFT_RIGHT);      
+      sendKeyStroke(KEY_7, MOD_ALT_RIGHT | MOD_SHIFT_RIGHT); // { está em Shift + AltGr + 7
     }
     else if(chr == '}') {
-      sendKeyStroke(48, MOD_ALT_RIGHT | MOD_SHIFT_RIGHT);
+      sendKeyStroke(KEY_0, MOD_ALT_RIGHT | MOD_SHIFT_RIGHT); // } está em Shift + AltGr + 0
+    }
+    else if(chr == 'ç') {
+      sendKeyStroke(51); // Ç no layout português
     }
     else {
+      // Manter outros caracteres inalterados
       uint8_t data = pgm_read_byte_near(ascii_to_scan_code_table + (chr - 8));
       sendKeyStroke(data & 0b01111111, data >> 7 ? MOD_SHIFT_RIGHT : 0);
     }

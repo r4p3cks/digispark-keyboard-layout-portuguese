@@ -28,5 +28,5 @@ I used these two resources:
 - http://www.asciitable.com/
 
 # Other languages
+- Italian: https://github.com/Maiux92/digispark-keyboard-layout-italian
 - Spanish: https://github.com/Dasor/digispark-keyboard-layout-Spanish
-- Portuguese: https://github.com/r4p3cks/digispark-keyboard-layout-portuguese
